@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b85c38">
+  <title>Pão & Controle — Estoque da Padaria</title>
+  <style>
+    :root{--bg:#fff9f0;--card:#fffdf9;--ink:#2b211d;--muted:#796b64;--line:#eaded0;--brand:#b85c38;--brand-dark:#8f4227;--green:#557568;--green-bg:#edf4ef;--warn:#a6651b;--warn-bg:#fff1d6;--danger:#a74436;--danger-bg:#fcebe8;--shadow:0 12px 35px rgba(82,48,31,.09)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:0}a{color:inherit}.app{display:flex;min-height:100vh}.sidebar{width:245px;padding:25px 16px;background:#30231e;color:#fff;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:19px;padding:4px 10px 30px}.logo{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:var(--brand);font-size:22px}.nav{display:grid;gap:6px}.nav button{padding:12px 14px;border-radius:11px;text-align:left;color:#d8c9c0;background:transparent;font-weight:700}.nav button:hover,.nav button.active{color:#fff;background:#4a352d}.sidebar-note{position:absolute;bottom:25px;left:25px;right:25px;color:#bdaaa0;font-size:12px}.main{width:100%;max-width:1440px;padding:28px 38px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:30px}.topbar h1{margin:0;font-size:30px;letter-spacing:-.04em}.topbar p{margin:5px 0 0;color:var(--muted)}.mobile-menu{display:none}.primary{padding:11px 16px;border-radius:10px;background:var(--brand);color:white;font-weight:800;box-shadow:0 8px 18px rgba(184,92,56,.18)}.primary:hover{background:var(--brand-dark)}.ghost{padding:10px 13px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--brand-dark);font-weight:750}.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,1fr);margin-bottom:23px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.stat-card{padding:20px}.stat-label{color:var(--muted);font-size:13px}.stat-value{margin-top:6px;font-size:30px;font-weight:850;letter-spacing:-.04em}.stat-card.warn .stat-value{color:var(--warn)}.stat-card.good .stat-value{color:var(--green)}.content-grid{grid-template-columns:1.15fr .85fr;align-items:start}.panel{padding:20px}.panel-header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}.panel h2{margin:0;font-size:19px;letter-spacing:-.03em}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:540px}.table th{padding:10px;text-align:left;color:var(--muted);font-size:12px;font-weight:750;border-bottom:1px solid var(--line)}.table td{padding:13px 10px;border-bottom:1px solid #f1e9e0}.table tr:last-child td{border-bottom:0}.product-name{font-weight:800}.sub{display:block;color:var(--muted);font-size:12px}.badge{display:inline-flex;padding:5px 9px;border-radius:99px;font-size:11px;font-weight:800;white-space:nowrap}.badge.ok{color:var(--green);background:var(--green-bg)}.badge.warn{color:var(--warn);background:var(--warn-bg)}.badge.danger{color:var(--danger);background:var(--danger-bg)}.quick{display:grid;gap:10px}.quick-item{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #f1e9e0}.quick-item:last-child{border:0}.empty{padding:24px;text-align:center;color:var(--muted)}.section{display:none}.section.active{display:block}.toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px}.toolbar h2{margin:0;font-size:24px;letter-spacing:-.04em}.filters{display:flex;flex-wrap:wrap;gap:8px}.input,.select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);outline:0}.input:focus,.select:focus{border-color:var(--brand);box-shadow:0 0 0 3px #f6dfd5}.search{max-width:260px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.field{display:grid;gap:6px}.field label{font-size:13px;font-weight:750}.field.full{grid-column:1/-1}.modal{display:none;position:fixed;inset:0;z-index:5;padding:20px;background:rgba(43,33,29,.45);align-items:center;justify-content:center}.modal.open{display:flex}.modal-box{width:min(550px,100%);max-height:92vh;overflow:auto;padding:24px;border-radius:18px;background:var(--card);box-shadow:0 25px 80px rgba(0,0,0,.2)}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modal-head h2{margin:0;font-size:22px}.close{width:32px;height:32px;border-radius:50%;background:#f2e9e1;color:var(--ink);font-size:19px}.form-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:20px}.danger-btn{padding:8px 10px;border-radius:8px;color:var(--danger);background:var(--danger-bg);font-size:12px;font-weight:800}.edit-btn{padding:8px 10px;border-radius:8px;color:var(--brand-dark);background:#fff0e7;font-size:12px;font-weight:800}.history-item{display:grid;grid-template-columns:120px 1fr auto;gap:12px;align-items:center;padding:15px 0;border-bottom:1px solid #f1e9e0}.history-item:last-child{border:0}.movement-in{color:var(--green);font-weight:850}.movement-out{color:var(--danger);font-weight:850}.notice{padding:13px 15px;margin-bottom:16px;border-radius:11px;color:var(--warn);background:var(--warn-bg);font-size:13px}.about{max-width:750px}.about h2{font-size:30px;margin:0 0 12px;letter-spacing:-.04em}.about p{color:var(--muted);font-size:16px}.feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:25px}.feature{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card)}.feature strong{display:block;margin-bottom:5px}.feature span{color:var(--muted);font-size:13px}
+    @media(max-width:950px){.sidebar{width:205px}.main{padding:24px}.stats{grid-template-columns:repeat(2,1fr)}.content-grid{grid-template-columns:1fr}}
+    @media(max-width:650px){.app{display:block}.sidebar{width:100%;height:auto;position:relative;padding:13px 14px}.brand{padding:0 4px 12px}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:9px 11px}.sidebar-note{display:none}.main{padding:22px 14px}.topbar{align-items:flex-start}.topbar h1{font-size:25px}.topbar .primary{display:none}.mobile-menu{display:block}.form-grid,.feature-list{grid-template-columns:1fr}.history-item{grid-template-columns:1fr auto}.history-item time{color:var(--muted);font-size:12px}.stats{gap:10px}.stat-card{padding:15px}.stat-value{font-size:25px}.panel{padding:15px}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo">✦</span><span>Pão &amp; Controle</span></div>
+      <nav class="nav" aria-label="Navegação principal">
+        <button class="active" data-section="dashboard">▦ &nbsp; Visão geral</button>
+        <button data-section="products">▣ &nbsp; Produtos</button>
+        <button data-section="movements">↕ &nbsp; Movimentações</button>
+        <button data-section="about">ⓘ &nbsp; Sobre o aplicativo</button>
+      </nav>
+      <div class="sidebar-note">Seus dados ficam salvos neste dispositivo.</div>
+    </aside>
+
+    <main class="main">
+      <section class="section active" id="dashboard">
+        <div class="topbar"><div><h1>Visão geral</h1><p>Controle o estoque da sua padaria com simplicidade.</p></div><button class="primary" data-open="product-modal">+ Novo produto</button></div>
+        <div class="grid stats">
+          <div class="card stat-card"><div class="stat-label">Total de produtos</div><div class="stat-value" id="total-products">0</div></div>
+          <div class="card stat-card warn"><div class="stat-label">Estoque baixo</div><div class="stat-value" id="low-stock">0</div></div>
+          <div class="card stat-card"><div class="stat-label">Itens esgotados</div><div class="stat-value" id="out-stock">0</div></div>
+          <div class="card stat-card good"><div class="stat-label">Movimentações hoje</div><div class="stat-value" id="today-movements">0</div></div>
+        </div>
+        <div id="dashboard-notice"></div>
+        <div class="grid content-grid">
+          <div class="card panel"><div class="panel-header"><h2>Estoque atual</h2><button class="ghost" data-section-link="products">Ver todos</button></div><div class="table-wrap"><table class="table"><thead><tr><th>Produto</th><th>Categoria</th><th>Quantidade</th><th>Status</th></tr></thead><tbody id="dashboard-table"></tbody></table></div></div>
+          <div class="card panel"><div class="panel-header"><h2>Últimas movimentações</h2><button class="ghost" data-section-link="movements">Histórico</button></div><div class="quick" id="quick-history"></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="products">
+        <div class="toolbar"><h2>Produtos</h2><button class="primary" data-open="product-modal">+ Novo produto</button></div>
+        <div class="card panel"><div class="filters"><input class="input search" id="product-search" placeholder="Buscar produto..." aria-label="Buscar produto"><select class="select" id="category-filter" style="max-width:210px" aria-label="Filtrar por categoria"><option value="">Todas as categorias</option><option>Ingrediente</option><option>Produto pronto</option><option>Bebida</option><option>Embalagem</option></select></div><div class="table-wrap" style="margin-top:16px"><table class="table"><thead><tr><th>Produto</th><th>Categoria</th><th>Quantidade</th><th>Mínimo</th><th>Status</th><th>Ações</th></tr></thead><tbody id="products-table"></tbody></table></div></div>
+      </section>
+
+      <section class="section" id="movements">
+        <div class="toolbar"><h2>Movimentações</h2><button class="primary" data-open="movement-modal">+ Registrar movimentação</button></div>
+        <div class="card panel"><div id="history-list"></div></div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="card panel about"><div class="eyebrow" style="color:var(--brand-dark);font-weight:850;text-transform:uppercase;letter-spacing:.1em;font-size:12px">Pão &amp; Controle</div><h2>Organização para a rotina da sua padaria.</h2><p>Este aplicativo foi criado para facilitar o cadastro de produtos e o controle do estoque. Registre entradas e saídas, acompanhe os níveis mínimos e reduza o risco de faltar ingrediente ou produto pronto.</p><div class="feature-list"><div class="feature"><strong>Funciona offline</strong><span>Os dados ficam salvos no navegador deste dispositivo.</span></div><div class="feature"><strong>Alertas de estoque</strong><span>Identifique rapidamente o que precisa ser reposto.</span></div><div class="feature"><strong>Histórico completo</strong><span>Consulte as movimentações registradas por data.</span></div><div class="feature"><strong>Uso simples</strong><span>Feito para acompanhar o ritmo da padaria.</span></div></div></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+    <div class="modal-box"><div class="modal-head"><h2 id="product-modal-title">Novo produto</h2><button class="close" data-close="product-modal" aria-label="Fechar">×</button></div><form id="product-form"><input type="hidden" id="product-id"><div class="form-grid"><div class="field full"><label for="product-name">Nome do produto</label><input class="input" id="product-name" required placeholder="Ex.: Farinha de trigo"></div><div class="field"><label for="product-category">Categoria</label><select class="select" id="product-category" required><option>Ingrediente</option><option>Produto pronto</option><option>Bebida</option><option>Embalagem</option></select></div><div class="field"><label for="product-unit">Unidade</label><select class="select" id="product-unit"><option>unidade</option><option>kg</option><option>g</option><option>litro</option><option>pacote</option><option>caixa</option></select></div><div class="field"><label for="product-quantity">Quantidade atual</label><input class="input" id="product-quantity" type="number" min="0" step="0.01" required value="0"></div><div class="field"><label for="product-min">Estoque mínimo</label><input class="input" id="product-min" type="number" min="0" step="0.01" required value="0"></div></div><div class="form-actions"><button type="button" class="ghost" data-close="product-modal">Cancelar</button><button class="primary" type="submit">Salvar produto</button></div></form></div>
+  </div>
+
+  <div class="modal" id="movement-modal" role="dialog" aria-modal="true" aria-labelledby="movement-modal-title">
+    <div class="modal-box"><div class="modal-head"><h2 id="movement-modal-title">Registrar movimentação</h2><button class="close" data-close="movement-modal" aria-label="Fechar">×</button></div><form id="movement-form"><div class="form-grid"><div class="field full"><label for="movement-product">Produto</label><select class="select" id="movement-product" required></select></div><div class="field"><label for="movement-type">Tipo</label><select class="select" id="movement-type"><option value="entrada">Entrada</option><option value="saida">Saída</option></select></div><div class="field"><label for="movement-quantity">Quantidade</label><input class="input" id="movement-quantity" type="number" min="0.01" step="0.01" required value="1"></div><div class="field full"><label for="movement-note">Observação (opcional)</label><input class="input" id="movement-note" placeholder="Ex.: Compra do fornecedor"></div></div><div class="form-actions"><button type="button" class="ghost" data-close="movement-modal">Cancelar</button><button class="primary" type="submit">Registrar</button></div></form></div>
+  </div>
+
+  <script>
+    const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2);
+    const seedProducts = [
+      {id: uid(), name:'Farinha de trigo', category:'Ingrediente', unit:'kg', quantity:25, min:10},
+      {id: uid(), name:'Açúcar', category:'Ingrediente', unit:'kg', quantity:8, min:10},
+      {id: uid(), name:'Pão francês', category:'Produto pronto', unit:'unidade', quantity:86, min:30},
+      {id: uid(), name:'Croissant', category:'Produto pronto', unit:'unidade', quantity:18, min:12},
+      {id: uid(), name:'Fermento biológico', category:'Ingrediente', unit:'pacote', quantity:0, min:5}
+    ];
+    let products = JSON.parse(localStorage.getItem('pao-controle-products') || 'null') || seedProducts;
+    let movements = JSON.parse(localStorage.getItem('pao-controle-movements') || '[]');
+    const save = () => { localStorage.setItem('pao-controle-products', JSON.stringify(products)); localStorage.setItem('pao-controle-movements', JSON.stringify(movements)); };
+    const esc = value => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    const fmt = n => Number(n).toLocaleString('pt-BR', {maximumFractionDigits:2});
+    const status = p => p.quantity <= 0 ? ['Esgotado','danger'] : p.quantity <= p.min ? ['Estoque baixo','warn'] : ['Em estoque','ok'];
+    const dateLabel = iso => new Date(iso).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+    function render(){
+      const low = products.filter(p=>p.quantity>0 && p.quantity<=p.min).length, out = products.filter(p=>p.quantity<=0).length;
+      const today = new Date().toDateString();
+      document.querySelector('#total-products').textContent = products.length;
+      document.querySelector('#low-stock').textContent = low;
+      document.querySelector('#out-stock').textContent = out;
+      document.querySelector('#today-movements').textContent = movements.filter(m=>new Date(m.date).toDateString()===today).length;
+      document.querySelector('#dashboard-notice').innerHTML = (low+out) ? `<div class="notice">Atenção: você tem <strong>${low+out} produto(s)</strong> que precisam de reposição.</div>` : '';
+      document.querySelector('#dashboard-table').innerHTML = products.slice().sort((a,b)=>a.quantity-b.quantity).slice(0,6).map(p=>{const s=status(p);return `<tr><td><span class="product-name">${esc(p.name)}</span><span class="sub">${esc(p.unit)}</span></td><td>${esc(p.category)}</td><td>${fmt(p.quantity)}</td><td><span class="badge ${s[1]}">${s[0]}</span></td></tr>`}).join('') || '<tr><td colspan="4" class="empty">Nenhum produto cadastrado.</td></tr>';
+      document.querySelector('#quick-history').innerHTML = movements.slice().reverse().slice(0,5).map(m=>`<div class="quick-item"><div><strong>${esc(m.productName)}</strong><span class="sub">${dateLabel(m.date)}${m.note ? ' · '+esc(m.note) : ''}</span></div><span class="${m.type==='entrada'?'movement-in':'movement-out'}">${m.type==='entrada'?'+':'−'}${fmt(m.quantity)}</span></div>`).join('') || '<div class="empty">Nenhuma movimentação registrada.</div>';
+      filterProducts(); renderHistory(); fillMovementProducts(); save();
+    }
+    function filterProducts(){
+      const q=(document.querySelector('#product-search')?.value||'').toLowerCase(), cat=document.querySelector('#category-filter')?.value||'';
+      const list=products.filter(p=>(!q||p.name.toLowerCase().includes(q))&&(!cat||p.category===cat));
+      document.querySelector('#products-table').innerHTML=list.map(p=>{const s=status(p);return `<tr><td><span class="product-name">${esc(p.name)}</span><span class="sub">${esc(p.unit)}</span></td><td>${esc(p.category)}</td><td>${fmt(p.quantity)}</td><td>${fmt(p.min)}</td><td><span class="badge ${s[1]}">${s[0]}</span></td><td><button class="edit-btn" data-edit="${p.id}">Editar</button> <button class="danger-btn" data-delete="${p.id}">Excluir</button></td></tr>`}).join('') || '<tr><td colspan="6" class="empty">Nenhum produto encontrado.</td></tr>';
+    }
+    function renderHistory(){
+      document.querySelector('#history-list').innerHTML=movements.slice().reverse().map(m=>`<div class="history-item"><time>${dateLabel(m.date)}</time><div><strong>${esc(m.productName)}</strong><span class="sub">${m.type==='entrada'?'Entrada no estoque':'Saída do estoque'}${m.note?' · '+esc(m.note):''}</span></div><span class="${m.type==='entrada'?'movement-in':'movement-out'}">${m.type==='entrada'?'+':'−'}${fmt(m.quantity)}</span></div>`).join('')||'<div class="empty">Nenhuma movimentação registrada ainda.</div>';
+    }
+    function fillMovementProducts(){document.querySelector('#movement-product').innerHTML=products.map(p=>`<option value="${p.id}">${esc(p.name)} (${fmt(p.quantity)} ${esc(p.unit)})</option>`).join('')||'<option value="">Cadastre um produto primeiro</option>';}
+    function openModal(id){document.querySelector('#'+id).classList.add('open'); if(id==='movement-modal') fillMovementProducts();}
+    function closeModal(id){document.querySelector('#'+id).classList.remove('open');}
+    function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.section===id));}
+    document.addEventListener('click', e=>{
+      const open=e.target.closest('[data-open]'), close=e.target.closest('[data-close]'), nav=e.target.closest('[data-section]'), link=e.target.closest('[data-section-link]');
+      if(open) openModal(open.dataset.open); if(close) closeModal(close.dataset.close); if(nav) showSection(nav.dataset.section); if(link) showSection(link.dataset.sectionLink);
+      const edit=e.target.closest('[data-edit]'); if(edit){const p=products.find(x=>x.id===edit.dataset.edit); if(!p)return; document.querySelector('#product-modal-title').textContent='Editar produto'; document.querySelector('#product-id').value=p.id; document.querySelector('#product-name').value=p.name; document.querySelector('#product-category').value=p.category; document.querySelector('#product-unit').value=p.unit; document.querySelector('#product-quantity').value=p.quantity; document.querySelector('#product-min').value=p.min; openModal('product-modal');}
+      const del=e.target.closest('[data-delete]'); if(del){const p=products.find(x=>x.id===del.dataset.delete); if(p&&confirm('Excluir '+p.name+'?')){products=products.filter(x=>x.id!==p.id);save();render();}}
+      if(e.target.classList.contains('modal')) e.target.classList.remove('open');
+    });
+    document.querySelector('#product-search').addEventListener('input',filterProducts); document.querySelector('#category-filter').addEventListener('change',filterProducts);
+    document.querySelector('#product-form').addEventListener('submit', e=>{e.preventDefault();const id=document.querySelector('#product-id').value;const data={name:document.querySelector('#product-name').value.trim(),category:document.querySelector('#product-category').value,unit:document.querySelector('#product-unit').value,quantity:Number(document.querySelector('#product-quantity').value),min:Number(document.querySelector('#product-min').value)};if(id){const p=products.find(x=>x.id===id);Object.assign(p,data)}else products.push({id:uid(),...data});e.target.reset();document.querySelector('#product-id').value='';document.querySelector('#product-modal-title').textContent='Novo produto';closeModal('product-modal');render();});
+    document.querySelector('#movement-form').addEventListener('submit', e=>{e.preventDefault();const p=products.find(x=>x.id===document.querySelector('#movement-product').value),type=document.querySelector('#movement-type').value,q=Number(document.querySelector('#movement-quantity').value);if(!p)return;if(type==='saida'&&q>p.quantity){alert('A quantidade de saída é maior que o estoque disponível.');return}p.quantity=type==='entrada'?p.quantity+q:p.quantity-q;movements.push({id:uid(),productName:p.name,type,quantity:q,note:document.querySelector('#movement-note').value.trim(),date:new Date().toISOString()});e.target.reset();closeModal('movement-modal');render();});
+    render();
+  </script>
+</body>
+</html>
